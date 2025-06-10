@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jogadores - FC Barcelona</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background: #121212;
+    color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; padding: 20px;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fc3c3c;
+    text-shadow: 1px 1px 4px #930000;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .card {
+    background: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(252, 60, 60, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(252, 60, 60, 0.8);
+  }
+  .card img {
+    width: 100%;
+    display: block;
+    height: 280px;
+    object-fit: cover;
+  }
+  .card-content {
+    padding: 15px;
+  }
+  .card-content h3 {
+    margin: 0 0 10px;
+    font-size: 1.25rem;
+    color: #fc3c3c;
+  }
+  .card-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #bbb;
+  }
+ 
+
+  @media(max-width: 600px) {
+    .card img {
+      height: 200px;
+    }
+  }
+</style>
+</head>
+<body>
+  <header style="background-color: #121212;">
+    <div class="logo">FC Barcelona</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="historia.html">História</a></li>
+        <li><a href="imagens.html">Imagens</a></li>
+        
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="noticias.html" target="_blank">Noticias</a></li>
+
+        <button id="toggle-dark">Modo Escuro</button>
+
+      </ul>
+    </nav>
+  </header>
+
+<h1>Jogadores do FC Barcelona</h1>
+<div class="container" id="container-jogadores">
+  <!-- Cards serão gerados aqui pelo JS -->
+</div>
+
+<script>
+ const jogadores = [
+  { nome: "Marc-André ter Stegen", descricao: "Goleiro talentoso, fundamental para a defesa do time.", img: "img/Ter.jpg" },
+  { nome: "Iñaki Peña", descricao: "Goleiro reserva promissor.", img: "img/pena.jpg" },
+  { nome: "Ander Astralaga", descricao: "Goleiro jovem com potencial.", img: "img/Astralaga.jpg" },
+
+  { nome: "Ronald Araújo", descricao: "Zagueiro jovem e forte na defesa.", img: "img/04-Araujo-M.jpg" },
+  { nome: "Andreas Christensen", descricao: "Zagueiro técnico e rápido.", img: "img/Ch.jpg" },
+  { nome: "Pau Cubarsí", descricao: "Zagueiro jovem da base.", img: "img/Cubarsi.jpg" },
+  { nome: "Eric García", descricao: "Zagueiro jovem com grande potencial.", img: "img/Eric.jpg" },
+  { nome: "Iñigo Martínez", descricao: "Zagueiro experiente.", img: "img/Mart.jpg" },
+  { nome: "Alejandro Balde", descricao: "Lateral-esquerdo jovem com muita promessa.", img: "img/Balde.jpg" },
+  { nome: "Jules Koundé", descricao: "Zagueiro rápido e técnico, peça importante na defesa.", img: "img/Kounde.jpg" },
+  { nome: "Gerard Martín", descricao: "Defensor jovem da base.", img: "img/Gerard.jpg" },
+  { nome: "Héctor Fort", descricao: "Zagueiro promissor da base.", img: "img/Hector.jpg" },
+
+  { nome: "Gavi", descricao: "Meio-campista jovem e talentoso.", img: "img/gavi.jpg" },
+  { nome: "Pedri", descricao: "Meio-campista jovem com visão de jogo impressionante.", img: "img/pedri.jpg" },
+  { nome: "Frenkie de Jong", descricao: "Meio-campista versátil, com grande controle de bola.", img: "img/Frankie.jpg" },
+  { nome: "Fermín López", descricao: "Meio-campista jovem promissor.", img: "img/Fermin.jpg" },
+  { nome: "Dani Olmo", descricao: "Meio-campista criativo e experiente.", img: "img/Dani.jpg" },
+  { nome: "Pablo Torre", descricao: "Jovem meio-campista com boa técnica.", img: "img/Pablo.jpg" },
+  { nome: "Marc Casadó", descricao: "Meio-campista da base com potencial.", img: "img/Casado.jpg" },
+
+  { nome: "Ansu Fati", descricao: "Jovem promessa e atacante rápido do clube.", img: "img/Ansu_fati.jpg" },
+  { nome: "Lamine Yamal", descricao: "Jovem talento com muito futuro pela frente.", img: "img/Lamine.jpg" },
+  { nome: "Raphinha", descricao: "Atacante brasileiro com muita habilidade e velocidade.", img: "img/raphinha.jpg" },
+  { nome: "Ferran Torres", descricao: "Atacante versátil e técnico.", img: "img/Ferran.jpg" },
+  { nome: "Robert Lewandowski", descricao: "Centroavante goleador e referência no ataque.", img: "img/Lewa.jpg" },
+  { nome: "Pau Víctor", descricao: "Atacante jovem da base.", img: "img/Pau.jpg" }
+];
+
+
+  const container = document.getElementById('container-jogadores');
+
+  jogadores.forEach(jogador => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    card.innerHTML = `
+      <img src="${jogador.img}" alt="Foto de ${jogador.nome}">
+      <div class="card-content">
+        <h3>${jogador.nome}</h3>
+        <p>${jogador.descricao}</p>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+</script>
+<footer>
+  <p>© 2025 FC Barcelona Fan Portal | Criado por JAVAX 💙❤️</p>
+</footer>
+</body>
+</html>
