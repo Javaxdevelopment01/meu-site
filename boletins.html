@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boletins - Gestão Escolar</title>
+  <link rel="stylesheet" href="css/boletins.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- Sidebar (mesmo padrão da Dashboard) -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="img/logo_ipm2.png" alt="Logo">
+      <h2>Gestão Escolar</h2>
+    </div>
+
+    <nav class="sidebar-nav">
+      <!-- ÁREA PRINCIPAL -->
+      <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+
+      <!-- GESTÃO ACADÊMICA -->
+      <h3 class="menu-title">Gestão Acadêmica</h3>
+      <a href="alunos.html"><i class="fas fa-user-graduate"></i> Alunos</a>
+      <a href="professores.html"><i class="fas fa-user-tie"></i> Professores</a>
+      <a href="turmas.html"><i class="fas fa-users"></i> Turmas</a>
+      <a href="disciplinas.html"><i class="fas fa-book"></i> Disciplinas</a>
+      <a href="horarios.html"><i class="fas fa-calendar-alt"></i> Horários</a>
+
+      <!-- AVALIAÇÕES E NOTAS -->
+      <h3 class="menu-title">Notas & Avaliações</h3>
+      <a href="lancar_notas.html"><i class="fas fa-clipboard-check"></i> Lançar Notas</a>
+      <a href="ver_pauta.html"><i class="fas fa-eye"></i> Ver Pauta</a>
+      <a href="#" class="active"><i class="fas fa-certificate"></i> Boletins</a>
+
+      <!-- INFRAESTRUTURA & PESSOAL -->
+      <h3 class="menu-title">Infraestrutura & Pessoal</h3>
+      <a href="salas_blocos.html"><i class="fas fa-building"></i> Salas & Blocos</a>
+      <a href="funcionarios.html"><i class="fas fa-user-cog"></i> Funcionários</a>
+
+      <!-- ANÁLISES E RELATÓRIOS -->
+      <h3 class="menu-title">Desempenho & Relatórios</h3>
+      <a href="desempenho.html"><i class="fas fa-chart-bar"></i> Desempenho</a>
+      <a href="relatorios.html"><i class="fas fa-chart-pie"></i> Relatórios</a>
+
+      <!-- CONFIGURAÇÕES DO SISTEMA -->
+      <h3 class="menu-title">Sistema</h3>
+      <a href="mensagens.html"><i class="fas fa-envelope-open-text"></i> Mensagens</a>
+      <a href="definicoes.html"><i class="fas fa-cog"></i> Definições</a>
+      <a href="login.html"><i class="fas fa-sign-out-alt"></i> Terminar Sessão</a>
+    </nav>
+  </aside>
+
+  <!-- Conteúdo Principal -->
+  <main class="main-content">
+    <header class="header">
+      <h1>Boletins</h1>
+      <div class="user-info">
+        <i class="fas fa-user-circle"></i> Leonel António
+        <button id="toggleDarkMode" class="darkmode-btn" title="Modo escuro">🌙</button>
+      </div>
+    </header>
+
+    <section class="boletins-section">
+      <div class="section-header">
+        <div class="filtros">
+          <select id="selectTurma">
+            <!-- JS preenche -->
+          </select>
+          <select id="selectAluno" disabled>
+            <option value="">Selecione a turma</option>
+          </select>
+          <select id="selectTrimestre">
+            <option value="1">1º Trimestre</option>
+            <option value="2">2º Trimestre</option>
+            <option value="3">3º Trimestre</option>
+          </select>
+          <button id="btnVer"><i class="fas fa-eye"></i> Ver Boletim</button>
+          <button id="btnPDF" class="btn-pdf"><i class="fas fa-file-pdf"></i> Exportar PDF</button>
+        </div>
+      </div>
+
+      <!-- Cartão do Boletim -->
+      <div id="boletimCard" class="boletim-card">
+        <div class="boletim-header">
+          <div class="escola">
+            <img src="img/logo_ipm2.png" alt="Logo">
+            <div>
+              <h2>Instituto Politécnico Modelo</h2>
+              <p>Boletim de Notas • <span id="infoTrimestre">Selecione um trimestre</span></p>
+            </div>
+          </div>
+          <div class="aluno-info">
+            <p><strong>Aluno:</strong> <span id="infoAluno">—</span></p>
+            <p><strong>Turma:</strong> <span id="infoTurma">—</span></p>
+            <p><strong>Ano Letivo:</strong> <span id="infoAno">2025</span></p>
+          </div>
+        </div>
+
+        <div class="tabela-container">
+          <table id="tabelaBoletim">
+            <thead>
+              <tr>
+                <th>Disciplina</th>
+                <th>Nota 1</th>
+                <th>Nota 2</th>
+                <th>Nota 3</th>
+                <th>Média</th>
+                <th>Rendimento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="6" style="text-align:center;color:#666;">Selecione Turma, Aluno e Trimestre e clique em “Ver Boletim”.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="boletim-footer">
+          <div class="legenda">
+            <span class="badge excelente">Excelente (≥16)</span>
+            <span class="badge bom">Bom (14–15,9)</span>
+            <span class="badge regular">Regular (10–13,9)</span>
+            <span class="badge fraco">Fraco (&lt;10)</span>
+          </div>
+          <div class="assinaturas">
+            <div><span>___________</span><small>Diretor</small></div>
+            <div><span>___________</span><small>Secretaria</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="js/boletins.js"></script>
+</body>
+</html>

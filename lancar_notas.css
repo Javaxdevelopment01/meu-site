@@ -1,0 +1,237 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.dashboard-body {
+  display: flex;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+.sidebar {
+  width: 240px;
+  background-color: #003366;
+  color: #fff;
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.sidebar-logo img {
+  width: 40px;
+  height: 40px;
+}
+.sidebar-nav a {
+  color: #ddd;
+  text-decoration: none;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+.sidebar-nav a.active,
+.sidebar-nav a:hover {
+  background-color: #0059b3;
+  color: #fff;
+}
+.menu-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+/* Conteúdo principal */
+.main-content {
+  margin-left: 240px;
+  padding: 30px;
+  flex-grow: 1;
+}
+
+/* Cabeçalho */
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px 25px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.btn-darkmode {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 18px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+/* Seção */
+.section-lancar h1 {
+  margin-bottom: 20px;
+}
+.filtros {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.filtros select, .filtros button {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Tabela */
+.tabela-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table th, table td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+table th {
+  background-color: #f0f0f0;
+}
+
+/* Botão */
+.btn-lancar {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn-lancar:hover {
+  background-color: #0056b3;
+}
+/* ===== MODO ESCURO ===== */
+body.modo-escuro {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.modo-escuro .main-content {
+  background-color: #1e1e1e;
+}
+
+body.modo-escuro .header {
+  background-color: #222;
+  color: #fff;
+}
+
+body.modo-escuro .sidebar {
+  background-color: #111;
+}
+
+body.modo-escuro .sidebar-nav a {
+  color: #bbb;
+}
+
+body.modo-escuro .sidebar-nav a.active,
+body.modo-escuro .sidebar-nav a:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+body.modo-escuro .menu-title {
+  color: #555;
+}
+
+body.modo-escuro .filtros select,
+body.modo-escuro .filtros button,
+body.modo-escuro table,
+body.modo-escuro table th,
+body.modo-escuro table td {
+  background-color: #2c2c2c;
+  color: #eee;
+  border-color: #444;
+}
+
+body.modo-escuro table th {
+  background-color: #333;
+}
+
+body.modo-escuro input[type="number"] {
+  background-color: #2c2c2c;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+body.modo-escuro .btn-lancar {
+  background-color: #0066cc;
+}
+body.modo-escuro .btn-lancar:hover {
+  background-color: #004d99;
+}
+/* Notas Lançadas */
+.notas-lancadas {
+  margin-top: 40px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+}
+
+body.modo-escuro .notas-lancadas {
+  background-color: #1e1e1e;
+}
+
+.notas-lancadas table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.notas-lancadas th,
+.notas-lancadas td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.notas-lancadas button {
+  background-color: #007bff;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  margin: 0 3px;
+}
+
+.notas-lancadas button:hover {
+  background-color: #0056b3;
+}
+
+body.modo-escuro .notas-lancadas th,
+body.modo-escuro .notas-lancadas td {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: #eee;
+}
