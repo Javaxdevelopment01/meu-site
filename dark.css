@@ -1,0 +1,78 @@
+:root {
+    --cor-fundo: #f4f4f4;
+    --cor-texto: #333;
+    --cor-primaria: #00349a;
+    --cor-hover: #0055cc;
+    --cor-texto-inverso: white;
+  }
+  
+  body.dark-mode {
+    --cor-fundo: #121212;
+    --cor-texto: #eeeeee;
+    --cor-primaria: #1a1a40;
+    --cor-hover: #3333aa;
+    --cor-texto-inverso: white;
+  }
+  
+  body {
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  
+  /* aplica as cores nos componentes principais */
+  header, footer {
+    background: var(--cor-primaria);
+    color: var(--cor-texto-inverso);
+  }
+  
+  nav ul li a {
+    color: var(--cor-texto-inverso);
+  }
+  
+  nav ul li a:hover {
+    color: #ffd700;
+  }
+  
+  form button {
+    background: var(--cor-primaria);
+    color: var(--cor-texto-inverso);
+  }
+  
+  form button:hover {
+    background: var(--cor-hover);
+  }
+  
+  /* Botão modo escuro */
+  #toggle-dark {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  
+    .cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .carrossel {
+      width: 100%;
+      height: 250px;
+    }
+  }
+  

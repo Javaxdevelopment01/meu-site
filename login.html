@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Gestão Escolar</title>
+  <link rel="stylesheet" href="css/login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="background-animation"></div>
+
+  <div class="login-container">
+    <div class="login-box">
+      <img src="img/logo_ipm2.png" class="logo-escola" alt="Logo da Escola" />
+      <h1 class="titulo-digitado" id="tituloDigitado"></h1>
+
+      <form id="formLogin">
+        <label for="usuario"><i class="fas fa-user"></i> Usuário</label>
+        <input type="text" id="usuario" placeholder="Digite seu nome de usuário" required>
+
+        <label for="senha"><i class="fas fa-lock"></i> Senha</label>
+        <input type="password" id="senha" placeholder="Digite sua senha" required>
+
+        <div class="lembrar">
+          <input type="checkbox" id="lembrar">
+          <label for="lembrar">Lembrar-me</label>
+        </div>
+        <div class="personalizacao">
+            <label for="corFundo">Cor do Fundo:</label>
+            <input type="color" id="corFundo" />
+          </div>
+          
+          <button type="button" id="btnLogin">
+            <span class="texto">Entrar</span>
+            <span class="spinner" style="display: none;">
+              <i class="fas fa-circle-notch fa-spin"></i>
+            </span>
+          </button>
+          <p class="mensagem" id="mensagem"></p>
+          
+       
+      </form>
+    </div>
+  </div>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Professores - Gestão Escolar</title>
+  <link rel="stylesheet" href="css/professores.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- Menu lateral -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="img/logo_ipm2.png" alt="Logo">
+      <h2>Gestão Escolar</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+
+      <h3 class="menu-title">Gestão Acadêmica</h3>
+      <a href="alunos.html"><i class="fas fa-user-graduate"></i> Alunos</a>
+      <a href="#" class="active"><i class="fas fa-user-tie"></i> Professores</a>
+      <a href="turmas.html"><i class="fas fa-users"></i> Turmas</a>
+      <a href="disciplinas.html"><i class="fas fa-book"></i> Disciplinas</a>
+      <a href="horarios.html"><i class="fas fa-calendar-alt"></i> Horários</a>
+
+      <h3 class="menu-title">Notas & Avaliações</h3>
+      <a href="lancar_notas.html"><i class="fas fa-clipboard-check"></i> Lançar Notas</a>
+      <a href="ver_pauta.html"><i class="fas fa-poll"></i> Ver Pautas</a>
+      <a href="boletins.html"><i class="fas fa-certificate"></i> Boletins</a>
+
+      <h3 class="menu-title">Gestão Administrativa</h3>
+      <a href="salas_blocos.html"><i class="fas fa-building"></i> Salas & Blocos</a>
+      <a href="funcionarios.html"><i class="fas fa-user-cog"></i> Funcionários</a>
+      <a href="desempenho.html"><i class="fas fa-chart-bar"></i> Desempenho</a>
+      <a href="relatorios.html"><i class="fas fa-chart-pie"></i> Relatórios</a>
+
+      <h3 class="menu-title">Sistema</h3>
+      <a href="mensagens.html"><i class="fas fa-envelope-open-text"></i> Mensagens</a>
+      <a href="definicoes.html"><i class="fas fa-cog"></i> Definições</a>
+      <a href="#"><i class="fas fa-sign-out-alt"></i> Terminar Sessão</a>
+    </nav>
+  </aside>
+
+  <!-- Conteúdo principal -->
+  <div class="main-content">
+    <header class="header">
+      <div class="user-info">
+        <span><i class="fas fa-user-circle"></i> Leonel António</span>
+        <button id="btnModoEscuro" class="btn-darkmode" title="Modo escuro"><i class="fas fa-moon"></i></button>
+      </div>
+    </header>
+
+    <section class="section-professores">
+      <div class="section-header">
+        <h1>Professores</h1>
+        <div>
+          <input type="text" id="campoPesquisa" placeholder="Pesquisar por nome ou disciplina...">
+          <button id="btnAdicionar"><i class="fas fa-plus"></i> Adicionar</button>
+        </div>
+      </div>
+
+      <!-- Cards dos professores -->
+      <div class="cards-container" id="cardsProfessores">
+        <!-- JS vai preencher aqui -->
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span id="fecharModal" class="fechar">&times;</span>
+      <h2>Adicionar Professor</h2>
+      <form id="formProfessor">
+        <label for="nomeProfessor">Nome:</label>
+        <input type="text" id="nomeProfessor" required>
+
+        <label for="disciplinaProfessor">Disciplina:</label>
+        <input type="text" id="disciplinaProfessor" required>
+
+        <label for="imagemProfessor">Imagem:</label>
+        <input type="file" id="imagemProfessor" accept="image/*">
+        <img id="previewImagem" src="img/avatar.png" alt="Preview" class="preview-img">
+
+        <button type="submit" class="btn-salvar"><i class="fas fa-save"></i> Salvar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/professores.js"></script>
+</body>
+</html>

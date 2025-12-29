@@ -1,0 +1,56 @@
+/* Reset & base (padrão igual ao Dashboard) */
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif}
+body.dashboard-body{display:flex;background:#f4f6f8;color:#333}
+
+/* Sidebar (idêntica ao dashboard) */
+.sidebar{width:240px;background:#003366;color:#fff;display:flex;flex-direction:column;padding:20px;height:100vh;position:fixed;left:0;top:0;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#0059b3 transparent}
+.sidebar::-webkit-scrollbar{width:6px}
+.sidebar::-webkit-scrollbar-thumb{background:#0059b3;border-radius:6px}
+.sidebar-logo{display:flex;flex-direction:column;align-items:center;margin-bottom:30px;text-align:center}
+.sidebar-logo img{width:80px;height:80px;object-fit:contain;margin-bottom:10px}
+.sidebar-logo h2{font-size:16px}
+.sidebar-nav{width:100%}
+.sidebar-nav a{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;padding:10px;border-radius:6px;transition:.3s;margin-bottom:5px;font-size:14px}
+.sidebar-nav a:hover,.sidebar-nav a.active{background:#0059b3;color:#fff}
+.sidebar-nav h3.menu-title{margin-top:20px;font-size:13px;color:#99b3cc;text-transform:uppercase;letter-spacing:.5px;font-weight:400}
+
+/* Main content */
+.main-content{margin-left:240px;padding:30px;flex:1}
+.header{display:flex;justify-content:space-between;align-items:center;background:#fff;padding:15px 20px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.1);margin-bottom:20px}
+.header h1{font-size:22px;color:#003366}
+.user-info{font-weight:bold;color:#003366;display:flex;align-items:center;gap:12px}
+.darkmode-btn{background:transparent;border:none;font-size:20px;cursor:pointer;color:#003366}
+
+/* Controls */
+.controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:12px}
+.controls label{margin-right:8px;color:#003366;font-weight:600}
+.control-left select{padding:8px 10px;border:1px solid #ccc;border-radius:8px;margin-right:10px}
+.control-right .btn-primary{background:#0059b3;color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer}
+
+/* Resumo cards */
+.resumo-cards{display:flex;gap:20px;margin-bottom:22px;flex-wrap:wrap}
+.card.resumo{background:#fff;padding:18px;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.08);flex:1;min-width:160px;text-align:center}
+.card.resumo h2{font-size:26px;color:#003366}
+.card.resumo p{color:#666;margin-top:6px}
+
+/* Graficos */
+.graficos-container{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px}
+.grafico-box{background:#fff;padding:18px;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.grafico-box h3{font-size:16px;color:#003366;margin-bottom:8px}
+
+/* Ranking */
+.ranking-box{background:#fff;padding:18px;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.ranking-table{width:100%;border-collapse:collapse}
+.ranking-table th,.ranking-table td{padding:10px;text-align:left;border-bottom:1px solid #eee}
+.ranking-table thead{background:#0059b3;color:#fff}
+.ranking-table tbody tr:hover{background:#f8fbff}
+
+/* Responsividade */
+@media (max-width: 980px){
+  .graficos-container{grid-template-columns:1fr}
+  .resumo-cards{flex-direction:column}
+}
+body.dark-mode{background:#1e1e2f;color:#f1f1f1}
+body.dark-mode .header, body.dark-mode .grafico-box, body.dark-mode .card.resumo, body.dark-mode .ranking-box{background:#2c2c3d;color:#f1f1f1;box-shadow:0 2px 5px rgba(255,255,255,.03)}
+body.dark-mode .sidebar{background:#00264d}
+body.dark-mode .sidebar-nav a:hover, body.dark-mode .sidebar-nav a.active{background:#1f3f73}

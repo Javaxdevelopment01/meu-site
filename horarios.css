@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.dashboard-body {
+  display: flex;
+  background-color: #f4f6f8;
+  color: #333;
+  transition: 0.3s;
+}
+
+body.dark-mode {
+  background-color: #1e1e2f;
+  color: #f4f4f4;
+}
+
+.sidebar {
+  width: 240px;
+  background-color: #003366;
+  color: white;
+  height: 100vh;
+  position: fixed;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.sidebar-logo img {
+  width: 40px;
+  height: 40px;
+}
+.sidebar h2 {
+  font-size: 18px;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ddd;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 6px;
+  transition: 0.3s;
+  margin-bottom: 5px;
+}
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+  background-color: #0059b3;
+  color: #fff;
+}
+.sidebar-nav h3.menu-title {
+  font-size: 12px;
+  color: #bbb;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+.main-content {
+  margin-left: 240px;
+  padding: 30px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.btn-pdf {
+  background-color: #b30000;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-pdf:hover {
+  background-color: #800000;
+}
+
+.btn-darkmode {
+  background: transparent;
+  border: none;
+  color: #003366;
+  font-size: 20px;
+  cursor: pointer;
+}
+body.dark-mode .btn-darkmode {
+  color: #f4f4f4;
+}
+
+.horarios-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+body.dark-mode .horarios-section {
+  background-color: #2c2c3b;
+}
+
+.formulario-horario {
+  margin-bottom: 30px;
+}
+.formulario-horario h1 {
+  margin-bottom: 15px;
+}
+.formulario-horario form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.formulario-horario input,
+.formulario-horario select,
+.formulario-horario button {
+  padding: 10px;
+  font-size: 14px;
+}
+.formulario-horario input,
+.formulario-horario select {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.formulario-horario button {
+  background-color: #0059b3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.formulario-horario button:hover {
+  background-color: #003f7f;
+}
+
+.tabela-horarios table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.tabela-horarios th,
+.tabela-horarios td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}

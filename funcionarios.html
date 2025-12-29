@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Funcionários - Gestão Escolar</title>
+  <link rel="stylesheet" href="css/funcionarios.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- Sidebar (mesmo padrão do Dashboard) -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="img/logo_ipm2.png" alt="Logo">
+      <h2>Gestão Escolar</h2>
+    </div>
+
+    <nav class="sidebar-nav">
+      <!-- ÁREA PRINCIPAL -->
+      <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+
+      <!-- GESTÃO ACADÊMICA -->
+      <h3 class="menu-title">Gestão Acadêmica</h3>
+      <a href="alunos.html"><i class="fas fa-user-graduate"></i> Alunos</a>
+      <a href="professores.html"><i class="fas fa-user-tie"></i> Professores</a>
+      <a href="turmas.html"><i class="fas fa-users"></i> Turmas</a>
+      <a href="disciplinas.html"><i class="fas fa-book"></i> Disciplinas</a>
+      <a href="horarios.html"><i class="fas fa-calendar-alt"></i> Horários</a>
+
+      <!-- AVALIAÇÕES E NOTAS -->
+      <h3 class="menu-title">Notas & Avaliações</h3>
+      <a href="lancar_notas.html"><i class="fas fa-clipboard-check"></i> Lançar Notas</a>
+      <a href="ver_pauta.html"><i class="fas fa-eye"></i> Ver Pauta</a>
+      <a href="boletins.html"><i class="fas fa-certificate"></i> Boletins</a>
+
+      <!-- GESTÃO ADMINISTRATIVA -->
+      <h3 class="menu-title">Gestão Administrativa</h3>
+      <a href="salas_blocos.html"><i class="fas fa-building"></i> Salas & Blocos</a>
+      <a href="#" class="active"><i class="fas fa-user-cog"></i> Funcionários</a>
+
+      <!-- RELATÓRIOS & ESTATÍSTICAS -->
+      <h3 class="menu-title">Relatórios & Estatísticas</h3>
+      <a href="desempenho.html"><i class="fas fa-chart-bar"></i> Desempenho</a>
+      <a href="relatorios.html"><i class="fas fa-chart-pie"></i> Relatórios</a>
+
+      <!-- SISTEMA -->
+      <h3 class="menu-title">Sistema</h3>
+      <a href="mensagens.html"><i class="fas fa-envelope-open-text"></i> Mensagens</a>
+      <a href="definicoes.html"><i class="fas fa-cog"></i> Definições</a>
+      <a href="login.html"><i class="fas fa-sign-out-alt"></i> Terminar Sessão</a>
+    </nav>
+  </aside>
+
+  <!-- Conteúdo Principal -->
+  <div class="main-content">
+    <header class="header">
+      <h1>Funcionários</h1>
+      <div class="user-info">
+        <span><i class="fas fa-user-circle"></i> Leonel António</span>
+        <button id="toggleDarkMode" class="darkmode-btn" title="Modo escuro">🌙</button>
+      </div>
+    </header>
+
+    <section class="section-func">
+      <div class="section-header">
+        <h2 class="title"><i class="fas fa-user-cog"></i> Equipa & Funcionários</h2>
+        <div class="actions">
+          <div class="search">
+            <input type="text" id="campoPesquisa" placeholder="Pesquisar por nome, cargo ou email..." />
+            <i class="fas fa-magnifying-glass"></i>
+          </div>
+          <button id="btnAdicionar" class="btn-primary"><i class="fas fa-user-plus"></i> Adicionar</button>
+        </div>
+      </div>
+
+      <div id="cardsContainer" class="cards-container">
+        <!-- Cards injetados via JS -->
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal de Cadastro/Edição -->
+  <div class="modal" id="modalFuncionario">
+    <div class="modal-content">
+      <button id="fecharModal" class="modal-close" title="Fechar">&times;</button>
+      <h3 id="tituloModal">Novo Funcionário</h3>
+
+      <form id="formFuncionario" class="form-modal">
+        <div class="form-row">
+          <label>Nome</label>
+          <input type="text" id="nome" required>
+        </div>
+        <div class="form-row">
+          <label>Email</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-row">
+          <label>Cargo</label>
+          <input type="text" id="cargo" required>
+        </div>
+        <div class="form-row">
+          <label>Telefone</label>
+          <input type="text" id="telefone" placeholder="+244 ...">
+        </div>
+        <div class="form-row">
+          <label>Foto</label>
+          <input type="file" id="foto" accept="image/*">
+          <img id="previewFoto" class="preview" src="img/avatar.png" alt="Pré-visualização">
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="btnCancelar" class="btn-sec">Cancelar</button>
+          <button type="submit" id="btnSalvar" class="btn-primary"><i class="fas fa-save"></i> Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/funcionarios.js"></script>
+</body>
+</html>

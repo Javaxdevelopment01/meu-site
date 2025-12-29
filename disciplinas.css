@@ -1,0 +1,367 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ESTRUTURA PRINCIPAL */
+.dashboard-body {
+  display: flex;
+  background-color: #f4f6f8;
+  min-height: 100vh;
+  transition: background-color 0.3s;
+}
+
+.main-content {
+  flex-grow: 1;
+  margin-left: 240px;
+  padding: 30px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background-color: #003366;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.sidebar-logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.sidebar-logo h2 {
+  font-size: 18px;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ddd;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 6px;
+  transition: 0.3s;
+  margin-bottom: 5px;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+  background-color: #0059b3;
+  color: #fff;
+}
+
+.menu-title {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #ccc;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  margin-bottom: 25px;
+}
+
+.user-info {
+  font-weight: bold;
+  color: #003366;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-darkmode {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #003366;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-darkmode:hover {
+  transform: scale(1.1);
+}
+
+/* SEÇÃO */
+.disciplinas-section {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header input {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.section-header button {
+  background-color: #0059b3;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.section-header button:hover {
+  background-color: #004080;
+}
+
+/* CARDS */
+.lista-disciplinas {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.curso-container h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #003366;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background-color: #e9f2fb;
+  color: #003366;
+  border-radius: 10px;
+  padding: 20px;
+  width: 180px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card i {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.card:hover {
+  background-color: #d0e7fb;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  width: 400px;
+  position: relative;
+  animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  } to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  color: #003366;
+}
+
+.modal-content label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 600;
+}
+
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.preview-icon {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #003366;
+}
+
+.btn-salvar {
+  width: 100%;
+  background-color: #0059b3;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-salvar:hover {
+  background-color: #004080;
+}
+
+.fechar {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #888;
+}
+
+.fechar:hover {
+  color: #000;
+}
+
+/* MODO ESCURO */
+body.modo-escuro {
+  background-color: #1f1f1f;
+}
+
+body.modo-escuro .main-content,
+body.modo-escuro .disciplinas-section {
+  background-color: #2a2a2a;
+  color: #eee;
+}
+
+body.modo-escuro .header,
+body.modo-escuro .modal-content {
+  background-color: #333;
+  color: #eee;
+}
+
+body.modo-escuro .card {
+  background-color: #444;
+  color: #fff;
+}
+
+body.modo-escuro .sidebar {
+  background-color: #121212;
+}
+
+body.modo-escuro .sidebar-nav a {
+  color: #ccc;
+}
+
+body.modo-escuro .sidebar-nav a.active,
+body.modo-escuro .sidebar-nav a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+body.modo-escuro .menu-title {
+  color: #888;
+}
+
+ /* Sidebar */
+  .sidebar {
+    width: 240px;
+    background-color: #003366;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  .sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .sidebar-logo img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ddd;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    transition: 0.3s;
+  }
+  
+  .sidebar-nav a:hover,
+  .sidebar-nav a.active {
+    background-color: #0059b3;
+    color: #fff;
+  }
+  
+  .menu-title {
+    font-size: 13px;
+    color: #aaa;
+    margin: 20px 0 10px;
+    text-transform: uppercase;
+  }
+   

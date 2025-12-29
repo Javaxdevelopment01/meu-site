@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  .dashboard-body {
+    display: flex;
+    background-color: #f4f6f8;
+  }
+  
+  .sidebar {
+    width: 240px;
+    background-color: #003366;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .sidebar {
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+  
+  .menu-title {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 20px;
+    text-transform: uppercase;
+  }
+  
+  .sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .sidebar-logo img {
+    width: 40px;
+  }
+  
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ccc;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 6px;
+    transition: 0.3s;
+  }
+  
+  .sidebar-nav a.active,
+  .sidebar-nav a:hover {
+    background-color: #0059b3;
+    color: white;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    margin-left: 240px;
+    padding: 30px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    background-color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .section-header input {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 250px;
+  }
+  
+  .section-header button {
+    background-color: #0059b3;
+    color: white;
+    padding: 10px 16px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .alunos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  
+  .aluno-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .aluno-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .aluno-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 12px;
+    object-fit: cover;
+  }
+  
+  .aluno-card h3 {
+    color: #003366;
+    font-size: 18px;
+  }
+  
+  .aluno-card p {
+    color: #666;
+    font-size: 14px;
+  }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-overlay.active {
+    display: flex;
+  }
+  
+  .modal {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 400px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    animation: aparecer 0.4s ease;
+  }
+  
+  @keyframes aparecer {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .modal h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #003366;
+  }
+  
+  .modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .modal input[type="text"],
+  .modal input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .modal-actions button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #0059b3;
+    color: white;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .modal-actions button:hover {
+    background-color: #003f80;
+  }
+/* Estilo do botão modo escuro */
+.dark-mode-btn {
+    margin-left: 20px;
+    background-color: #eee;
+    border: none;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dark-mode-btn:hover {
+    background-color: #ccc;
+  }
+  
+  .dark-mode-btn i {
+    color: #003366;
+  }
+  
+  /* Estilos para o modo escuro */
+  body.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+  }
+  
+  body.dark-mode .main-content,
+  body.dark-mode .header,
+  body.dark-mode .sidebar,
+  body.dark-mode .config-box,
+  body.dark-mode .card,
+  body.dark-mode .chat,
+  body.dark-mode .contatos,
+  body.dark-mode .mensagens-container,
+  body.dark-mode .ranking-box,
+  body.dark-mode .grafico-container {
+    background-color: #1e1e1e !important;
+    color: #f0f0f0;
+  }
+  
+  body.dark-mode .sidebar-nav a {
+    color: #ccc;
+  }
+  
+  body.dark-mode .sidebar-nav a.active,
+  body.dark-mode .sidebar-nav a:hover {
+    background-color: #0059b3;
+    color: #fff;
+  }
+      

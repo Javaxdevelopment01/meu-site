@@ -1,0 +1,103 @@
+/* Reset e base (mesmo padrão) */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
+body.dashboard-body { display: flex; background-color: #f4f6f8; }
+
+/* Sidebar (idêntica ao dashboard) */
+.sidebar {
+  width: 240px;
+  background-color: #003366;
+  color: white;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 20px; height: 100vh; position: fixed; left: 0; top: 0;
+  overflow-y: auto; scrollbar-width: thin; scrollbar-color: #0059b3 transparent;
+}
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-thumb { background-color: #0059b3; border-radius: 6px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+
+.sidebar-logo { text-align: center; margin-bottom: 30px; }
+.sidebar-logo img { width: 80px; height: 80px; object-fit: contain; margin-bottom: 10px; }
+.sidebar-logo h2 { font-size: 16px; }
+
+.sidebar-nav { width: 100%; }
+.sidebar-nav a {
+  display: flex; align-items: center; gap: 10px;
+  color: #fff; text-decoration: none; padding: 10px;
+  border-radius: 6px; transition: 0.3s; margin-bottom: 5px;
+}
+.sidebar-nav a:hover, .sidebar-nav a.active { background-color: #0059b3; color: #fff; }
+.sidebar-nav h3.menu-title {
+  margin-top: 20px; font-size: 13px; color: #99b3cc;
+  text-transform: uppercase; font-weight: normal; letter-spacing: 0.5px;
+}
+
+/* Main */
+.main-content { margin-left: 240px; padding: 30px; flex: 1; }
+.header {
+  display: flex; justify-content: space-between; align-items: center;
+  background-color: #fff; padding: 20px; border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1); margin-bottom: 30px;
+}
+.header h1 { font-size: 24px; color: #003366; }
+.user-info { color: #003366; font-weight: bold; display:flex; align-items:center; gap:10px; }
+.darkmode-btn {
+  background-color: transparent; border: none; font-size: 20px; cursor: pointer;
+  margin-left: 10px; color: #003366; transition: transform 0.3s;
+}
+.darkmode-btn:hover { transform: scale(1.15); }
+
+/* Seção Boletins */
+.boletins-section { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+.section-header { display:flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+
+.filtros { display: flex; gap: 10px; flex-wrap: wrap; }
+.filtros select, .filtros button {
+  padding: 10px 12px; font-size: 14px; border-radius: 6px; border: 1px solid #ccc; background: #fff;
+}
+#btnVer { background-color: #0059b3; color: #fff; border: none; }
+#btnVer:hover { background-color: #004080; }
+.btn-pdf { background-color: #b30000; color: #fff; border: none; }
+.btn-pdf:hover { background-color: #800000; }
+
+/* Card Boletim */
+.boletim-card { margin-top: 15px; background: #f9fbff; border-radius: 12px; padding: 20px; }
+.boletim-header { display:flex; justify-content: space-between; gap: 20px; flex-wrap:wrap; margin-bottom: 15px; }
+.boletim-header .escola { display:flex; gap: 12px; align-items:center; }
+.boletim-header .escola img { width: 48px; height: 48px; object-fit: contain; }
+.boletim-header h2 { color: #003366; font-size: 18px; }
+.boletim-header p { color:#555; font-size: 13px; }
+.aluno-info p { color:#333; font-size: 14px; margin-bottom: 3px; }
+
+.tabela-container { overflow-x: auto; background:#fff; border-radius:10px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+#tabelaBoletim { width: 100%; border-collapse: collapse; }
+#tabelaBoletim thead { background-color: #003366; color: #fff; }
+#tabelaBoletim th, #tabelaBoletim td { padding: 12px; border-bottom: 1px solid #eaeaea; text-align: center; }
+#tabelaBoletim tbody tr:hover { background: #f5f8ff; }
+
+/* Rendimentos */
+.badge { padding: 4px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.excelente { background: #e6ffef; color: #0f9d58; border: 1px solid #bdf0cf; }
+.bom       { background: #eaf3ff; color: #1a73e8; border: 1px solid #cfe0ff; }
+.regular   { background: #fff6e6; color: #d88700; border: 1px solid #ffe0a8; }
+.fraco     { background: #ffecec; color: #d93025; border: 1px solid #ffc9c9; }
+
+.boletim-footer {
+  display:flex; justify-content: space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-top:12px;
+}
+.assinaturas { display:flex; gap: 40px; }
+.assinaturas div { text-align:center; color:#555; }
+.assinaturas small { display:block; margin-top:4px; }
+
+/* Dark mode (compatível com o dashboard) */
+body.dark-mode { background-color: #1e1e2f; color: #f1f1f1; }
+body.dark-mode .main-content { background-color: #1e1e2f; }
+body.dark-mode .header,
+body.dark-mode .sidebar,
+body.dark-mode .boletins-section,
+body.dark-mode .tabela-container {
+  background-color: #2c2c3d; color: #f1f1f1; box-shadow: 0 2px 5px rgba(255,255,255,0.05);
+}
+body.dark-mode .sidebar-nav a { color: #ccc; }
+body.dark-mode .sidebar-nav a:hover, body.dark-mode .sidebar-nav a.active { background-color: #444466; color: #fff; }
+body.dark-mode .darkmode-btn { color: #f1f1f1; }
+body.dark-mode #tabelaBoletim thead { background-color: #1b1b28; }
